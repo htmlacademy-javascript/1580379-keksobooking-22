@@ -9,6 +9,8 @@ const getRandomInteger = function (min, max) {
   return ('используйте положительные числа по нарастанию "от" меньшего "до" большего');
 }
 
+getRandomInteger(10, 25);
+
 
 const getRandomNumber = function (min, max, fix) {
   if (min >= 0 && max > min) {
@@ -19,3 +21,4 @@ const getRandomNumber = function (min, max, fix) {
   return ('используйте положительные числа по нарастанию "от" меньшего "до" большего');
 }
 
+getRandomNumber(43, 90);
