@@ -1,17 +1,15 @@
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-/* eslint-disable */
 
-
-function getRandomInteger(min, max) {
+const getRandomInteger = (min, max) => {
   if (min >= 0 && max > min) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return (Math.floor(Math.random() * (max - min + 1)) + min);
   }
+
   return 0;
 }
 
-function getRandomNumber(min, max, fix) {
+const getRandomNumber = (min, max, fix) => {
   if (min >= 0 && max > min) {
     return Number(((Math.random() * (max - min + 1)) + min).toFixed(fix));
   }
@@ -30,29 +28,33 @@ const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ];
 
-function getRandomAd() {
+const getRandomAdvert = () => {
+  const location = {
+    x: getRandomNumber(35.65, 35.7, 5),
+    y: getRandomNumber(139.7, 139.8, 5),
+  };
+
+  const getRandomEllement = arrayName => arrayName[getRandomInteger(0, arrayName.length - 1)];
+
   return {
     author: {
       avatar: 'img/avatars/user0' + getRandomInteger(1, 8) + '.png',
     },
     offer: {
       title: 'super title',
-      // address,
+      address: location.x + ', ' + location.y,
       price: getRandomInteger(1, 100000),
-      type: TYPES[getRandomInteger(0, TYPES.length - 1)],
+      type: getRandomEllement(TYPES),
       rooms: getRandomInteger(1, 10),
       guests: getRandomInteger(1, 10),
-      checkin: CHEKS[getRandomInteger(0, CHEKS.length - 1)],
-      checkout: CHEKS[getRandomInteger(0, CHEKS.length - 1)],
-      //не понимаю как миновать повторение значений
-      //features: new Array(getRandomInteger(0, FEATURES.length - 1)).fill(null),
+      checkin: getRandomEllement(CHEKS),
+      checkout: getRandomEllement(CHEKS),
+      features: FEATURES.slice(0, getRandomInteger(1, FEATURES.length - 1)),
       description: 'stylno, modno, molodejno',
-      //photos: new Array(getRandomInteger(1, 50)).fill(null),
+      photos: PHOTOS.slice(0, getRandomInteger(1, PHOTOS.length - 1)),
     },
-    location: {
-      x: getRandomNumber(35.65, 35.7, 5),
-    }
+    location,
   };
 };
 
-console.log(getRandomAd());
+new Array(10).fill(null).map(getRandomAdvert);
