@@ -66,26 +66,3 @@ const getRandomAdvert = () => {
 
 
 console.log(generateAdverts(10));
-
-//.map(function () {
-//return getRandomAd();
-// return return getRandomAd();(index + 1) // 1, 2, 3
-//});
-
-//console.log(similarObjects);
-
-// См. https://up.htmlacademy.ru/javascript/22/demos/4929#5
-// Нижней границей диапазона будет 0,
-// а верхней — максимальный индекс, который можно найти по формуле длина массива - 1,
-// потому что индексы нумеруются с нуля.
-
-// const items = [1, 2, 3] // index: 0 (1), 1 (2), 2 (3) = 2, items.length (3)
-
-// См. getRandomArrayElement
-// https://up.htmlacademy.ru/javascript/22/demos/4929#15
-
-// Нужно заменить декл. function на стрелочную функцию
-
-
-// данные в объектах хранят рекламное объявление (по ТЗ)
-// далее рекл. объеялвение будет отображаться (рендерится) в метке (pin) и в карточке (card)
